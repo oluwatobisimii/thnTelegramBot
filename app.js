@@ -351,7 +351,6 @@ bot.onText(/\/start/, (msg) => {
                     break;
 
                 case '8':
-
                     await bot.sendMessage(chatId, '⚡')
                     await bot.sendVideo(chatId, "https://github.com/oluwatobisimii/thnTelegramBot/blob/oluwatobi/assets/8a.mp4?raw=true", {
                         caption: `Be A Part of The Giants Experience
@@ -371,14 +370,14 @@ bot.onText(/\/start/, (msg) => {
                         filename: 'THN New Life Manual',
                         contentType: 'application/pdf',
                     })
-                    await bot.sendDocument(chatId, "./assets/documents/THNFIRSTFRUITMANUAL.pdf", {}, {
-                        filename: 'THN First Fruit Manual',
-                        contentType: 'application/pdf',
-                    })
-                    await bot.sendDocument(chatId, "./assets/documents/THNWORKFORCEMANUAL.pdf", {}, {
-                        filename: 'THN Workforce Manual',
-                        contentType: 'application/pdf',
-                    })
+                    // await bot.sendDocument(chatId, "./assets/documents/THNFIRSTFRUITMANUAL.pdf", {}, {
+                    //     filename: 'THN First Fruit Manual',
+                    //     contentType: 'application/pdf',
+                    // })
+                    // await bot.sendDocument(chatId, "./assets/documents/THNWORKFORCEMANUAL.pdf", {}, {
+                    //     filename: 'THN Workforce Manual',
+                    //     contentType: 'application/pdf',
+                    // })
 
                     await bot.sendPhoto(chatId, "https://github.com/oluwatobisimii/thnTelegramBot/blob/oluwatobi/assets/8b.jpeg?raw=true", {
                         caption: `- Download Audio Sermons On Telegram\nhttps://t.me/thnchurch\n\nReminisce Giants Services On Telegram\nhttps://t.me/thnchurch\n\nStream Giants Services Live On YouTube\nhttps://youtube.com/@THNChurch\n\nStream Giants Services Live On Mixlr\nhttps://mixlr.com/thnchurch`,
@@ -476,7 +475,10 @@ bot.onText(/\/start/, (msg) => {
                 // Handle other menu options
 
                 default:
-                    bot.sendMessage(chatId, 'Invalid menu option.');
+                    bot.sendMessage(chatId, '', {
+                        parse_mode: 'Markdown',
+                        reply_markup: JSON.stringify(keyboard)
+                    });
                     break;
             }
         }
